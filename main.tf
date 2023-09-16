@@ -134,7 +134,7 @@ resource "aws_route_table_association" "database" {
 }
 resource "aws_db_subnet_group" "roboshop" {
   name       = var.project_name
-  subnet_ids = [aws_subnet.database[*].id]
+  subnet_ids = aws_subnet.database[*].id
 
   tags = merge(var.common_tags,
   {
